@@ -1,12 +1,15 @@
 <?php
 
+namespace AVONnadozie;
+
 /**
- * Form validation library.
+ * PHP Form validation library.
  *
  * @author Tasos Bekos <tbekos@gmail.com>
  * @author Chris Gutierrez <cdotgutierrez@gmail.com>
  * @author Corey Ballou <ballouc@gmail.com>
- * @see https://github.com/blackbelt/php-validation
+ * @author Anuebunwa Victor <anuebunwa.victor@gmail.com>
+ * @see https://github.com/AVONnadozie/php-validation
  * @see Based on idea: http://brettic.us/2010/06/18/form-validation-class-using-php-5-3/
  */
 class Validator {

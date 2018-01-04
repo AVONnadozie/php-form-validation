@@ -1,5 +1,8 @@
 <?php
-class Validator_Exception extends Exception
+
+namespace AVONnadozie;
+
+class ValidatorException extends Exception
 {
     protected $_errors = array();
     

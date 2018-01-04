@@ -1,5 +1,5 @@
 <phpunit colors="true">
-    <testsuite name="Ruckus Website">
+    <testsuite name="Validator Test">
         <directory>./</directory>
     </testsuite>
 </phpunit>

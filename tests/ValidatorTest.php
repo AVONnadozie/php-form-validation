@@ -1,4 +1,7 @@
 <?php
+
+use AVONnadozie\Validator;
+
 require_once '../Validator.php';
 
 class ValidatorTest extends PHPUnit_Framework_TestCase
