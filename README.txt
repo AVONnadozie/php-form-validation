@@ -101,6 +101,6 @@ $validator
 
 ## Credits
 
-* Modifications by Corey Ballou, Chris Gutierrez, and Robert Fruchtman.
+* Modifications by Victor Anuebunwa, Corey Ballou, Chris Gutierrez, and Robert Fruchtman.
 * Forked from Tasos Bekos <tbekos at gmail dot com> which was based on the initial work of "Bretticus". 
 * See http://brettic.us/2010/06/18/form-validation-class-using-php-5-3/ for the original.
