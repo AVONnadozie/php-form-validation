@@ -2,6 +2,8 @@
 
 namespace AVONnadozie;
 
+use Exception;
+
 class ValidatorException extends Exception
 {
     protected $_errors = array();

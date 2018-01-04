@@ -66,7 +66,7 @@ class ValidatorTest extends PHPUnit_Framework_TestCase
         $validator->email()->validate('emails', true);
         $this->assertFalse($validator->hasErrors());
     }
-    
+
     /**
      * test the Validator 
      */
