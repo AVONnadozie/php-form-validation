@@ -1,6 +1,6 @@
 <?php
 
-use AVONnadozie\Validator;
+use AVONnadozie\Validator\Validator;
 
 require_once '../Validator.php';
 
