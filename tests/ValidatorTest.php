@@ -1,8 +1,9 @@
 <?php
 
-use AVONnadozie\Validator\Validator;
+use FormValidator\Validator;
 
-require_once '../Validator.php';
+require_once realpath(__DIR__ . '/../src/Validator.php');
+require_once realpath(__DIR__ . '/../src/Exception/ValidatorException.php');
 
 class ValidatorTest extends PHPUnit_Framework_TestCase
 {

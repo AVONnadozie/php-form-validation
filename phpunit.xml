@@ -1,5 +1,5 @@
 <phpunit colors="true">
     <testsuite name="Validator Test">
-        <directory>./</directory>
+        <directory>./tests</directory>
     </testsuite>
 </phpunit>
