@@ -4,7 +4,6 @@ namespace AVONnadozie\Validator;
 
 use DateTime;
 use DateTimeZone;
-use Exception;
 use ReflectionFunction;
 use ReflectionMethod;
 
@@ -39,8 +38,9 @@ class Validator
      */
     function __construct(array $data = null)
     {
-        if (!empty($data))
+        if (!empty($data)) {
             $this->setData($data);
+        }
     }
 
     /**
@@ -48,7 +48,7 @@ class Validator
      *
      * @access public
      * @param mixed $data
-     * @return FormValidator
+     * @return Validator
      */
     public function setData(array $data)
     {
@@ -62,13 +62,14 @@ class Validator
      * Field, if completed, has to be a valid email address.
      *
      * @param string $message
-     * @return FormValidator
+     * @return Validator
      */
     public function email($message = null)
     {
         $this->setRule(__FUNCTION__, function($email) {
-            if (strlen($email) == 0)
+            if (strlen($email) == 0) {
                 return true;
+            }
             $isValid = true;
             $atIndex = strrpos($email, '@');
             if (is_bool($atIndex) && !$atIndex) {
@@ -116,7 +117,7 @@ class Validator
      * Field must be filled in.
      *
      * @param string $message
-     * @return FormValidator
+     * @return Validator
      */
     public function required($message = null)
     {
@@ -133,12 +134,15 @@ class Validator
      * Field must contain a valid float value.
      *
      * @param string $message
-     * @return FormValidator
+     * @return Validator
      */
-    public function float($message = null) {
+    public function float($message = null)
+    {
+
     $this->setRule(__FUNCTION__, function($val) {
         return !(filter_var($val, FILTER_VALIDATE_FLOAT) === FALSE);
     }, $message);
+
     return $this;
 }
 
@@ -146,7 +150,7 @@ class Validator
  * Field must contain a valid integer value.
  *
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function integer($message = null)
 {
@@ -161,7 +165,7 @@ public function integer($message = null)
  * This is just like integer(), except there is no upper limit.
  *
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function digits($message = null)
 {
@@ -177,7 +181,7 @@ public function digits($message = null)
  * @param numeric $limit
  * @param bool $include Whether to include limit value.
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function min($limit, $include = TRUE, $message = null)
 {
@@ -201,7 +205,7 @@ public function min($limit, $include = TRUE, $message = null)
  * @param numeric $limit
  * @param bool $include Whether to include limit value.
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function max($limit, $include = TRUE, $message = null)
 {
@@ -226,7 +230,7 @@ public function max($limit, $include = TRUE, $message = null)
  * @param numeric $max
  * @param bool $include Whether to include limit value.
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function between($min, $max, $include = TRUE, $message = null)
 {
@@ -241,7 +245,7 @@ public function between($min, $max, $include = TRUE, $message = null)
  *
  * @param int $len
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function minlength($len, $message = null)
 {
@@ -256,7 +260,7 @@ public function minlength($len, $message = null)
  *
  * @param int $len
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function maxlength($len, $message = null)
 {
@@ -286,7 +290,7 @@ public function betweenlength($minlength, $maxlength, $message = null)
  *
  * @param int $len
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function length($len, $message = null)
 {
@@ -302,7 +306,7 @@ public function length($len, $message = null)
  * @param string $field
  * @param string $label
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function matches($field, $label, $message = null)
 {
@@ -318,7 +322,7 @@ public function matches($field, $label, $message = null)
  * @param string $field
  * @param string $label
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function notmatches($field, $label, $message = null)
 {
@@ -333,7 +337,7 @@ public function notmatches($field, $label, $message = null)
  *
  * @param string $sub
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function startsWith($sub, $message = null)
 {
@@ -349,7 +353,7 @@ public function startsWith($sub, $message = null)
  *
  * @param string $sub
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function notstartsWith($sub, $message = null)
 {
@@ -365,7 +369,7 @@ public function notstartsWith($sub, $message = null)
  *
  * @param string $sub
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function endsWith($sub, $message = null)
 {
@@ -381,7 +385,7 @@ public function endsWith($sub, $message = null)
  *
  * @param string $sub
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function notendsWith($sub, $message = null)
 {
@@ -396,7 +400,7 @@ public function notendsWith($sub, $message = null)
  * Field has to be valid IP address.
  *
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function ip($message = null)
 {
@@ -410,7 +414,7 @@ public function ip($message = null)
  * Field has to be valid internet address.
  *
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function url($message = null)
 {
@@ -434,7 +438,7 @@ protected function _getDefaultDateFormat()
  * Field has to be a valid date.
  *
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function date($message = null, $format = null, $separator = null)
 {
@@ -447,7 +451,7 @@ public function date($message = null, $format = null, $separator = null)
         try {
             $dt = new DateTime($val, new DateTimeZone("UTC"));
             return true;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return false;
         }
     }, $message, array($format, $separator));
@@ -460,7 +464,7 @@ public function date($message = null, $format = null, $separator = null)
  * @param   string|int  $date       Limit date
  * @param   string      $format     Date format
  * @param   string      $message
- * @return FormValidator
+ * @return Validator
  */
 public function minDate($date = 0, $format = null, $message = null)
 {
@@ -491,7 +495,7 @@ public function minDate($date = 0, $format = null, $message = null)
  * @param string|integer $date Limit date.
  * @param string $format Date format.
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function maxDate($date = 0, $format = null, $message = null)
 {
@@ -521,7 +525,7 @@ public function maxDate($date = 0, $format = null, $message = null)
  *
  * @see https://github.com/funkatron/inspekt/blob/master/Inspekt.php
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function ccnum($message = null)
 {
@@ -554,7 +558,7 @@ public function ccnum($message = null)
  *
  * @param string|array $allowed Allowed values.
  * @param string $message
- * @return FormValidator
+ * @return Validator
  */
 public function oneOf($allowed, $message = null)
 {
@@ -576,7 +580,7 @@ public function oneOf($allowed, $message = null)
  * @param   mixed   $function
  * @param   string  $message
  * @param   mixed   $params
- * @return  FormValidator
+ * @return  Validator
  */
 public function callback($callback, $message = '', $params = array())
 {
@@ -604,7 +608,7 @@ public function callback($callback, $message = '', $params = array())
             }, $message, $params);
         }
     } else {
-        throw new Exception(sprintf('%s is not callable.', $function));
+        throw new ValidatorException(sprintf('%s is not callable.', $function));
     }
 
     return $this;
@@ -615,7 +619,7 @@ public function callback($callback, $message = '', $params = array())
  * add a filter callback for the data
  *
  * @param mixed $callback
- * @return FormValidator
+ * @return Validator
  */
 public function filter($callback)
 {
