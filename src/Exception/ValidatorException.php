@@ -1,6 +1,6 @@
 <?php
 
-namespace AVONnadozie\Validator;
+namespace FormValidator\Exception;
 
 use Exception;
 

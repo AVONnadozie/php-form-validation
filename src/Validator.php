@@ -1,9 +1,11 @@
 <?php
 
-namespace AVONnadozie\Validator;
+namespace FormValidator;
 
 use DateTime;
 use DateTimeZone;
+use Exception;
+use FormValidator\Exception\ValidatorException;
 use ReflectionFunction;
 use ReflectionMethod;
 
@@ -451,7 +453,7 @@ public function date($message = null, $format = null, $separator = null)
         try {
             $dt = new DateTime($val, new DateTimeZone("UTC"));
             return true;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }, $message, array($format, $separator));
