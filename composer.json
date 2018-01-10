@@ -1,8 +1,8 @@
 {
-    "name": "avonnadozie/php-validation",
+    "name": "avonnadozie/php-form-validation",
     "version": "1.0",
     "type": "library",
-    "description": "A PHP 5.3 Class for Easy Form Validation, forked from blackbelt/php-validation",
+    "description": "A PHP 5.3 Class for Easy Form Validation",
     "keywords": ["validation"],
     "authors": [
         {
