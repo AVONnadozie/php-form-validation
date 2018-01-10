@@ -7,6 +7,11 @@ This class follows Zend Framework naming conventions for easy drop-in as a subst
 If you opt out of using the bulky Zend_Form on your projects, you might choose to use this for quick and painless
 form validation.
 
+## Installation
+```bash
+composer require avonnadozie/php-form-validation
+```
+
 ## A Quick Example
 
 The example below shows how to throw validation exceptions with the custom
