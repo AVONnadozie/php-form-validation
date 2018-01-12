@@ -1,10 +1,9 @@
 <?php
 
-use FormValidator\Validator;
-
 require_once realpath(__DIR__ . '/../src/Validator.php');
 require_once realpath(__DIR__ . '/../src/Exception/ValidatorException.php');
 
+use FormValidator\Validator;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /*
